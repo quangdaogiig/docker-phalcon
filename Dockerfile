@@ -1,5 +1,5 @@
-FROM ubuntu:14.04
-MAINTAINER Thinh Voxuan <thinhvoxuan@gmail.com>, Vu Tran <vu.tk@geekup.vn>
+FROM ubuntu:16.04
+MAINTAINER quangdhd <quang.dao@giig.asia>
 
 RUN printf "xdebug.remote_enable=1\nxdebug.remote_host=10.254.254.254\nxdebug.remote_port=9001\nxdebug.remote_autostart=1\nxdebug.idekey=\"PHPSTORM\"" >> /etc/php5/mods-available/xdebug.ini
 
