@@ -4,7 +4,7 @@ MAINTAINER quangdhd <quang.dao@giig.asia>
 #RUN printf "xdebug.remote_enable=1\nxdebug.remote_host=10.254.254.254\nxdebug.remote_port=9001\nxdebug.remote_autostart=1\nxdebug.idekey=\"PHPSTORM\"" >> /etc/php5/mods-available/xdebug.ini
 
 #RUN apt-get update && apt-get -y install apache2 php5.6 && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN /usr/sbin/a2dismod 'mpm_*' && /usr/sbin/a2enmod mpm_prefork
+# RUN /usr/sbin/a2dismod 'mpm_*' && /usr/sbin/a2enmod mpm_prefork
 
 RUN /usr/sbin/a2enmod rewrite
 
