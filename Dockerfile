@@ -1,9 +1,9 @@
-FROM ubuntu:16.04
+FROM eboraas/apache-php
 MAINTAINER quangdhd <quang.dao@giig.asia>
 
 #RUN printf "xdebug.remote_enable=1\nxdebug.remote_host=10.254.254.254\nxdebug.remote_port=9001\nxdebug.remote_autostart=1\nxdebug.idekey=\"PHPSTORM\"" >> /etc/php5/mods-available/xdebug.ini
 
-RUN apt-get update && apt-get -y install apache2 php5.6 && apt-get clean && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get -y install apache2 php5.6 && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN /usr/sbin/a2dismod 'mpm_*' && /usr/sbin/a2enmod mpm_prefork
 
 RUN /usr/sbin/a2enmod rewrite
@@ -21,7 +21,7 @@ RUN /usr/bin/apt-get update && apt-get -y install git build-essential curl php-x
     cd /tmp && \
     /bin/rm -rf /tmp/cphalcon/ && \
     /usr/bin/apt-get -y purge git php-dev libpcre3-dev build-essential gcc make && apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN /bin/echo 'extension=phalcon.so' >/etc/php56/mods-available/phalcon.ini
+RUN /bin/echo 'extension=phalcon.so' >/etc/php/7.0/mods-available/phalcon.ini
 RUN /usr/sbin/phpenmod phalcon
 WORKDIR /var/www/phalcon/web
 RUN /bin/echo '<html><body><h1>It works!</h1></body></html>' > /var/www/phalcon/web/index.html
